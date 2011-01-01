@@ -2,12 +2,10 @@
 * Daemonize
 */
 
-#include <v8.h>
+#include <node.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <sys/stat.h>
 #include <fcntl.h>
-#include <ev.h>
 
 #define PID_MAXLEN 10
 
@@ -53,6 +51,7 @@ Handle<Value> CloseIO(const Arguments& args) {
 extern "C" void init(Handle<Object> target) {
   HandleScope scope;
   
-  target->Set(String::New("start"), FunctionTemplate::New(Start)->GetFunction());
-  target->Set(String::New("closeIO"), FunctionTemplate::New(CloseIO)->GetFunction());
+	NODE_SET_METHOD(target, "start", Start);
+	NODE_SET_METHOD(target, "closeIO", CloseIO);
 }
+

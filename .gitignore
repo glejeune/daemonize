@@ -1,4 +1,5 @@
 .DS_Store
+.lock-wscript
 doc
 pkg
-buils
+build

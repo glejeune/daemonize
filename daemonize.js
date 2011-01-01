@@ -37,7 +37,6 @@ Daemonize.prototype.stop = function() {
     fs.unlinkSync(this.config.pidFile);
   }
   catch(e) {
-    sys.puts(e)
     sys.puts("Daemon is not running! In fact, I did not find the PID file!");
   }
   
